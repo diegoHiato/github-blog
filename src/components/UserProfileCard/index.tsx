@@ -13,11 +13,6 @@ interface UserProfileCardProps {
 }
 
 export const UserProfileCard = ({ user }: UserProfileCardProps) => {
-  user.company = 'Rocketseat'
-  user.bio =
-    'Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.'
-  user.followers = 32
-
   return (
     <Container>
       <UserProfileImage $url={user.avatar_url} />

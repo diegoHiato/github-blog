@@ -17,6 +17,8 @@ export const Footer = styled.footer`
 `
 
 export const UserBio = styled.div`
+  margin-bottom: 1.5rem;
+
   display: flex;
   flex-direction: column;
   gap: 8px;
