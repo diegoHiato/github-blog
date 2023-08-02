@@ -16,7 +16,7 @@ export const Footer = styled.footer`
   }
 `
 
-export const UserBio = styled.div`
+export const Bio = styled.div`
   margin-bottom: 1.5rem;
 
   display: flex;
@@ -66,7 +66,7 @@ export const UserBio = styled.div`
   }
 `
 
-export const UserProfileImage = styled.section<{ $url: string }>`
+export const ProfileImage = styled.section<{ $url: string }>`
   width: 9.25rem;
   height: 9.25rem;
 

@@ -6,7 +6,7 @@ import {
 } from 'react-icons/fa6'
 import { NavLink } from 'react-router-dom'
 import { User } from '../../contexts/User/context'
-import { Container, Footer, UserBio, UserProfileImage } from './styles'
+import { Bio, Container, Footer, ProfileImage } from './styles'
 
 interface UserProfileCardProps {
   user: User
@@ -15,10 +15,10 @@ interface UserProfileCardProps {
 export const UserProfileCard = ({ user }: UserProfileCardProps) => {
   return (
     <Container>
-      <UserProfileImage $url={user.avatar_url} />
+      <ProfileImage $url={user.avatar_url} />
 
       <section>
-        <UserBio>
+        <Bio>
           <div>
             <span>{user.name}</span>
 
@@ -31,7 +31,7 @@ export const UserProfileCard = ({ user }: UserProfileCardProps) => {
           <div>
             <p>{user.bio}</p>
           </div>
-        </UserBio>
+        </Bio>
 
         <Footer>
           <div>
