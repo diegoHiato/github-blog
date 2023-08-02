@@ -1,7 +1,12 @@
+import { UserProfileCard } from '../../components/UserProfileCard'
+import { useUser } from '../../contexts/Hooks/useUser'
+
 export const Home = () => {
+  const { user } = useUser()
+
   return (
     <main>
-      <h1>Home</h1>
+      <UserProfileCard user={user} />
     </main>
   )
 }
