@@ -1,9 +1,13 @@
+import { NavLink } from 'react-router-dom'
+import Logo from '../../assets/logo.svg'
 import { Container } from './styles'
 
 export const Header = () => {
   return (
     <Container>
-      <h1>Header</h1>
+      <NavLink to="/" title="Home">
+        <img src={Logo} alt="" />
+      </NavLink>
     </Container>
   )
 }
