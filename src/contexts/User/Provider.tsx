@@ -26,7 +26,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 
   const getUserInformationFromApi = async () => {
     await githubApi
-      .get<User>('/users/diegoHiato')
+      .get<User>(`users/${import.meta.env.VITE_GITHUB_USER}`)
       .then(({ data }) => setUser(data))
   }
 
@@ -34,7 +34,9 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     await githubApi
       .get<FetchPostsResponse>('/search/issues', {
         params: {
-          q: 'repo:diegoHiato/github-blog',
+          q: `repo:${import.meta.env.VITE_GITHUB_USER}/${
+            import.meta.env.VITE_REPOSITORY
+          }`,
         },
       })
       .then(({ data: { items } }) => setPosts(items))
