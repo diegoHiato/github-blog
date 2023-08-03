@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
+import { PostCard } from '../../components/PostCard'
 import { UserProfileCard } from '../../components/UserProfileCard'
 import { useUser } from '../../contexts/Hooks/useUser'
 import { Container, Content } from './styles'
@@ -17,10 +18,6 @@ export const Home = () => {
     resolver: zodResolver(searchFormSchema),
   })
 
-  function fetchPosts(data: SearchForm) {
-    console.log(data)
-  }
-
   return (
     <Container>
       <UserProfileCard user={user} />
@@ -33,7 +30,7 @@ export const Home = () => {
           </div>
 
           <div>
-            <form onSubmit={handleSubmit(fetchPosts)}>
+            <form onSubmit={handleSubmit(() => {})}>
               <input
                 type="text"
                 placeholder="Buscar conteúdo"
@@ -43,7 +40,9 @@ export const Home = () => {
           </div>
         </section>
 
-        <section>{/* Post List */}</section>
+        <section>
+          <PostCard />
+        </section>
       </Content>
     </Container>
   )

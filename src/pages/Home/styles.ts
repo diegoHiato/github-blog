@@ -4,14 +4,14 @@ import { defaultTheme } from '../../styles/theme/default'
 const appTheme = defaultTheme
 
 export const Content = styled.div`
-  width: 100%;
-
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 3rem;
 
   & > section:first-of-type {
-    flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -59,6 +59,13 @@ export const Content = styled.div`
         }
       }
     }
+  }
+
+  & > section:last-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
   }
 `
 
