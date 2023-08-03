@@ -77,7 +77,7 @@ export const ProfileImage = styled.section<{ $url: string }>`
 `
 
 export const Container = styled.div`
-  max-width: 864px;
+  width: 100%;
   padding: 2rem;
   margin-top: -5.5rem;
   margin-inline: auto;
