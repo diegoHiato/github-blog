@@ -25,10 +25,15 @@ export const Title = styled.div`
     color: ${appTheme['base-title']};
     font-size: 1.25rem;
     line-height: 160%;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   & > span {
-    flex-shrink: 0;
+    flex-shrink: 1;
 
     color: ${appTheme['base-span']};
     font-size: 0.875rem;
