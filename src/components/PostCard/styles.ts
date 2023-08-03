@@ -14,11 +14,7 @@ export const Description = styled.div`
     font-size: 1rem;
     line-height: 160%;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
+    & > h1 {
       display: none;
     }
   }
