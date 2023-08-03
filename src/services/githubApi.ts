@@ -1,5 +1,5 @@
-import { Octokit } from 'octokit'
+import axios from 'axios'
 
-export const githubApi = new Octokit({
-  auth: `${import.meta.env.VITE_GITHUB_USER_TOKEN}`,
+export const githubApi = axios.create({
+  baseURL: 'https://api.github.com',
 })

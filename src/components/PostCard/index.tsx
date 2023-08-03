@@ -1,5 +1,6 @@
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
+import ReactMarkdown from 'react-markdown'
 import { Container, Description, Title } from './styles'
 
 interface PostCardProps {
@@ -26,7 +27,9 @@ export const PostCard = ({
       </Title>
 
       <Description>
-        <p>{description}</p>
+        <div>
+          <ReactMarkdown>{description}</ReactMarkdown>
+        </div>
       </Description>
     </Container>
   )

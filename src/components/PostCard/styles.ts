@@ -4,7 +4,7 @@ import { defaultTheme } from '../../styles/theme/default'
 const appTheme = defaultTheme
 
 export const Description = styled.div`
-  & > p {
+  & > div {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -13,6 +13,14 @@ export const Description = styled.div`
     color: ${appTheme['base-text']};
     font-size: 1rem;
     line-height: 160%;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      display: none;
+    }
   }
 `
 
@@ -20,6 +28,8 @@ export const Title = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+
+  overflow: hidden;
 
   & > h1 {
     color: ${appTheme['base-title']};
@@ -29,11 +39,11 @@ export const Title = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   & > span {
-    flex-shrink: 1;
+    flex-shrink: 0;
+    width: 20%;
 
     color: ${appTheme['base-span']};
     font-size: 0.875rem;

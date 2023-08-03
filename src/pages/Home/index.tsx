@@ -13,10 +13,14 @@ const searchFormSchema = zod.object({
 type SearchForm = zod.infer<typeof searchFormSchema>
 
 export const Home = () => {
-  const { user } = useUser()
-  const { register, handleSubmit } = useForm<SearchForm>({
+  const { user, posts } = useUser()
+  const { register, watch, handleSubmit } = useForm<SearchForm>({
     resolver: zodResolver(searchFormSchema),
   })
+  const searchInputValue = watch('query')
+  const filterredPosts = posts.filter((post) =>
+    post.title.toLowerCase().includes(searchInputValue),
+  )
 
   return (
     <Container>
@@ -26,7 +30,7 @@ export const Home = () => {
         <section>
           <div>
             <h2>{'Publicações'}</h2>
-            <span>{'6 publicações'}</span>
+            <span>{`${filterredPosts.length} publicações`}</span>
           </div>
 
           <div>
@@ -41,7 +45,16 @@ export const Home = () => {
         </section>
 
         <section>
-          <PostCard />
+          {filterredPosts.map((post) => {
+            return (
+              <PostCard
+                key={post.title}
+                title={post.title}
+                description={post.body}
+                publishedAt={new Date(post.created_at)}
+              />
+            )
+          })}
         </section>
       </Content>
     </Container>

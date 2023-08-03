@@ -10,8 +10,15 @@ export interface User {
   name: string
 }
 
+export interface Post {
+  title: string
+  body: string
+  created_at: string
+}
+
 interface UserContextType {
   user: User
+  posts: Post[]
 }
 
 export const UserContext = createContext({} as UserContextType)

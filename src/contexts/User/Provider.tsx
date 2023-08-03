@@ -1,6 +1,12 @@
-import { ReactNode, useCallback, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { githubApi } from '../../services/githubApi'
-import { User, UserContext } from './context'
+import { Post, User, UserContext } from './Context'
+
+interface FetchPostsResponse {
+  incomplete_results: boolean
+  items: Post[]
+  total_count: number
+}
 
 interface UserProviderProps {
   children: ReactNode
@@ -16,20 +22,32 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     login: '',
     name: '',
   })
+  const [posts, setPosts] = useState<Post[]>([])
 
-  const getUserInformationFromApi = useCallback(async () => {
+  const getUserInformationFromApi = async () => {
     await githubApi
-      .request(`GET /users/${import.meta.env.VITE_GITHUB_USER}`)
-      .then(({ data }) => {
-        setUser(data)
+      .get<User>('/users/diegoHiato')
+      .then(({ data }) => setUser(data))
+  }
+
+  const fetchPosts = async () => {
+    await githubApi
+      .get<FetchPostsResponse>('/search/issues', {
+        params: {
+          q: 'repo:diegoHiato/github-blog',
+        },
       })
-  }, [])
+      .then(({ data: { items } }) => setPosts(items))
+  }
 
   useEffect(() => {
     getUserInformationFromApi()
-  }, [getUserInformationFromApi])
+    fetchPosts()
+  }, [])
 
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, posts }}>
+      {children}
+    </UserContext.Provider>
   )
 }

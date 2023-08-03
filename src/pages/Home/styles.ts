@@ -72,6 +72,7 @@ export const Content = styled.div`
 export const Container = styled.main`
   width: 864px;
   margin-inline: auto;
+  margin-bottom: 18rem;
 
   display: flex;
   flex-direction: column;
