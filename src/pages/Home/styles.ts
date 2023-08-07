@@ -3,7 +3,7 @@ import { defaultTheme } from '../../styles/theme/default'
 
 const appTheme = defaultTheme
 
-export const Content = styled.div`
+export const Content = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -5,7 +5,7 @@ import {
   FaUserGroup,
 } from 'react-icons/fa6'
 import { NavLink } from 'react-router-dom'
-import { User } from '../../contexts/User/context'
+import { User } from '../../contexts/User/Context'
 import { Bio, Container, Footer, ProfileImage } from './styles'
 
 interface UserProfileCardProps {

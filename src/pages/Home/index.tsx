@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 import { PostCard } from '../../components/PostCard'
@@ -13,7 +14,7 @@ const searchFormSchema = zod.object({
 type SearchForm = zod.infer<typeof searchFormSchema>
 
 export const Home = () => {
-  const { user, posts } = useUser()
+  const { user, posts, fetchPosts } = useUser()
   const { register, watch, handleSubmit } = useForm<SearchForm>({
     resolver: zodResolver(searchFormSchema),
   })
@@ -21,6 +22,10 @@ export const Home = () => {
   const filterredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(searchInputValue),
   )
+
+  useEffect(() => {
+    fetchPosts()
+  }, [fetchPosts])
 
   return (
     <Container>
@@ -51,6 +56,7 @@ export const Home = () => {
                 key={post.title}
                 title={post.title}
                 description={post.body}
+                issueNumber={post.number}
                 publishedAt={new Date(post.created_at)}
               />
             )

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
 import { githubApi } from '../../services/githubApi'
 import { Post, User, UserContext } from './Context'
 
@@ -24,13 +24,13 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   })
   const [posts, setPosts] = useState<Post[]>([])
 
-  const getUserInformationFromApi = async () => {
+  const fetchUserInformation = async () => {
     await githubApi
       .get<User>(`users/${import.meta.env.VITE_GITHUB_USER}`)
       .then(({ data }) => setUser(data))
   }
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     await githubApi
       .get<FetchPostsResponse>('/search/issues', {
         params: {
@@ -40,15 +40,14 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         },
       })
       .then(({ data: { items } }) => setPosts(items))
-  }
+  }, [])
 
   useEffect(() => {
-    getUserInformationFromApi()
-    fetchPosts()
+    fetchUserInformation()
   }, [])
 
   return (
-    <UserContext.Provider value={{ user, posts }}>
+    <UserContext.Provider value={{ user, posts, fetchPosts }}>
       {children}
     </UserContext.Provider>
   )

@@ -14,11 +14,13 @@ export interface Post {
   title: string
   body: string
   created_at: string
+  number: number
 }
 
 interface UserContextType {
   user: User
   posts: Post[]
+  fetchPosts: () => Promise<void>
 }
 
 export const UserContext = createContext({} as UserContextType)
