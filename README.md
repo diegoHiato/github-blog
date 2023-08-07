@@ -22,7 +22,7 @@ Os estilos foram criados utilizando a biblioteca [Styled Components](https://www
 
 ### Demais bibliotecas
 [Axios](https://www.npmjs.com/package/axios)  
-[ESLint](https://www.npmjs.com/package/eslint)
+[ESLint](https://www.npmjs.com/package/eslint)  
 [React Hook Form](https://www.npmjs.com/package/react-hook-form)  
 [Zod](https://www.npmjs.com/package/zod)  
 [Date FNS](https://www.npmjs.com/package/date-fns)
