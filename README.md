@@ -25,7 +25,7 @@ Os estilos foram criados utilizando a biblioteca [Styled Components](https://www
 [ESLint](https://www.npmjs.com/package/eslint)  
 [React Hook Form](https://www.npmjs.com/package/react-hook-form)  
 [Zod](https://www.npmjs.com/package/zod)  
-[Date FNS](https://www.npmjs.com/package/date-fns)
+[DateFNS](https://www.npmjs.com/package/date-fns)  
 [React Markdown](https://www.npmjs.com/package/react-markdown)  
 [RemarkGFM](https://www.npmjs.com/package/remark-gfm)  
 [React Syntax Highlighter](https://www.npmjs.com/package/react-syntax-highlighter)  
