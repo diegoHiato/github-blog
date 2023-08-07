@@ -29,7 +29,7 @@ Os estilos foram criados utilizando a biblioteca [Styled Components](https://www
 [React Markdown](https://www.npmjs.com/package/react-markdown)  
 [RemarkGFM](https://www.npmjs.com/package/remark-gfm)  
 [React Syntax Highlighter](https://www.npmjs.com/package/react-syntax-highlighter)  
-[React Router DOM](https://www.npmjs.com/package/react-router-dom)
+[React Router DOM](https://www.npmjs.com/package/react-router-dom)  
 [React Icons](https://www.npmjs.com/package/react-icons)  
 
 ### APIs públicas
